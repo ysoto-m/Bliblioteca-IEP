@@ -1,8 +1,3 @@
-¡Aquí tienes tu `README.md` completo y mejorado! Está listo para copiar, pegar y usar directamente en tu repositorio GitHub:
-
----
-
-```md
 # 📚 Biblioteca-IEP
 
 Sistema web para gestión de biblioteca virtual, con control de libros, préstamos y reservas, desarrollado en PHP y Tailwind CSS.
@@ -27,26 +22,20 @@ Sistema web para gestión de biblioteca virtual, con control de libros, préstam
 
 El proyecto sigue una estructura tipo MVC:
 
-```
-
 Biblioteca/
-│
-├── controllers/        # Controladores (LibroController, AuthController, etc.)
-├── models/             # Modelos (Libro, Usuario, Reserva, Prestamo)
-├── views/              # Vistas divididas por módulos (libros, prestamos, reservas)
-├── index.php           # Punto de entrada del sistema
-├── config.php          # Conexión a la base de datos
-└── assets/             # Recursos estáticos (si aplica)
+controllers/        # Controladores (LibroController, AuthController, etc.)
+models/             # Modelos (Libro, Usuario, Reserva, Prestamo)
+views/              # Vistas divididas por módulos (libros, prestamos, reservas)
+index.php           # Punto de entrada del sistema
+config.php          # Conexión a la base de datos
+assets/             # Recursos estáticos (si aplica)
 
-````
-
----
 
 ## 🛠 Requisitos Técnicos
 
 - PHP 8.0+
 - MySQL 5.7+
-- Servidor local (XAMPP, Laragon, etc.)
+- Servidor local (XAMPP)
 - Navegador actualizado
 - Git (para control de versiones)
 
@@ -61,7 +50,7 @@ git clone https://github.com/ysoto-m/Bliblioteca-IEP.git
 ````
 
 2. Copia la carpeta a tu entorno local (por ejemplo: `C:/xampp/htdocs/Biblioteca`)
-3. Crea una base de datos llamada `biblioteca` y **importa el archivo SQL** desde `/database/biblioteca.sql`
+3. Crea una base de datos llamada `biblioteca` y importa el archivo SQL desde `/database/biblioteca.sql`
 4. Abre en tu navegador:
 
 ```
