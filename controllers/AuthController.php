@@ -16,13 +16,9 @@ class AuthController
         $this->pdo        = $pdo;
         $this->userModel  = new User($pdo);
         $this->prModel    = new PasswordReset($pdo);
-        // Las credenciales de correo se definen en config/mail.php, que lee de variables de entorno
         $this->mailConfig = require __DIR__ . '/../config/mail.php';
     }
 
-    /**
-     * Muestra y procesa el formulario de login
-     */
     public function login(): void
     {
         $error = '';
@@ -36,7 +32,7 @@ class AuthController
                 $foundUser = $this->userModel->findByEmail($data['email']);
 
                 if ($foundUser && password_verify($data['password'], $foundUser['contraseña'])) {
-                    // Guardar datos mínimos en sesión
+
                     $_SESSION['user'] = [
                         'id'   => $foundUser['id'],
                         'name' => $foundUser['nombre'],
@@ -52,13 +48,9 @@ class AuthController
             }
         }
 
-        // Solo incluir la vista de login
         include __DIR__ . '/../views/auth/login.php';
     }
 
-    /**
-     * Cierra la sesión
-     */
     public function logout(): void
     {
         session_unset();
@@ -67,9 +59,6 @@ class AuthController
         exit;
     }
 
-    /**
-     * Muestra y procesa el formulario de registro
-     */
     public function register(): void
     {
         $errors = [];
@@ -111,7 +100,7 @@ class AuthController
     }
 
     /**
-     * Formulario de \"Olvidé mi contraseña\" y envío de correo
+     * Formulario olvide pass
      */
     public function forgot(): void
     {
@@ -133,7 +122,7 @@ class AuthController
                 $link = "{$appUrl}/index.php?action=reset&email="
                     . urlencode($email) . "&token=" . urlencode($token);
 
-                // Enviar correo (mail nativo o PHPMailer)
+                // Enviar correo 
                 $headers = "From: {$this->mailConfig['from_name']} <{$this->mailConfig['from_email']}>";
                 mail(
                     $email,
@@ -185,7 +174,6 @@ class AuthController
                     password_hash($pass1, PASSWORD_DEFAULT),
                     $email
                 ]);
-                // Limpiar tokens
                 $this->prModel->clear($email);
 
                 $success = 'Contraseña actualizada. <a href="index.php?action=login">Entrar</a>';

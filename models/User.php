@@ -10,9 +10,6 @@ class User
         $this->pdo = $pdo;
     }
 
-    /**
-     * Busca un usuario por email; devuelve array o null
-     */
     public function findByEmail(string $email): ?array
     {
         $stmt = $this->pdo->prepare("SELECT * FROM usuario WHERE email = ?");
@@ -22,7 +19,6 @@ class User
 
     /**
      * Crea un nuevo usuario con contraseña hasheada.
-     * @return bool true si se insertó correctamente
      */
     public function create(string $nombre, string $email, string $password, string $rol = 'lector'): bool
     {
