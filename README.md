@@ -22,13 +22,13 @@ Sistema web para gestión de biblioteca virtual, con control de libros, préstam
 
 El proyecto sigue una estructura tipo MVC:
 
-Biblioteca/
-controllers/        # Controladores (LibroController, AuthController, etc.)
-models/             # Modelos (Libro, Usuario, Reserva, Prestamo)
-views/              # Vistas divididas por módulos (libros, prestamos, reservas)
-index.php           # Punto de entrada del sistema
-config.php          # Conexión a la base de datos
-assets/             # Recursos estáticos (si aplica)
+- Biblioteca/
+- controllers/        # Controladores (LibroController, AuthController, etc.)
+- models/             # Modelos (Libro, Usuario, Reserva, Prestamo)
+- views/              # Vistas divididas por módulos (libros, prestamos, reservas)
+- index.php           # Punto de entrada del sistema
+- config.php          # Conexión a la base de datos
+- assets/             # Recursos estáticos (si aplica)
 
 
 ## 🛠 Requisitos Técnicos
